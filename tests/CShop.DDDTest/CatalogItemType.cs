@@ -1,4 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using CShop.CatalogService.Models.CatalogItemRoot;
+using CShop.CatalogService.Models.CatalogItemRoot.Events;
+using CShop.CatalogService.Models.CatalogItemRoot.ValueObjects;
+using System.Xml.Linq;
 using Xunit;
 
 namespace CShop.DDDTest

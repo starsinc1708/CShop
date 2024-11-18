@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using CShop.CatalogService.Models.CatalogItemRoot;
+using CShop.CatalogService.Models.CatalogItemRoot.ValueObjects;
+using System.Xml.Linq;
 
 namespace CShop.DDDTest
 {
@@ -9,7 +11,7 @@ namespace CShop.DDDTest
 		{
 			// Arrange
 			var name = new Name("Test Item");
-			var description = new ItemDescription("Test Description");
+			var description = new Description("Test Description");
 			var price = new Price(100);
 			var stock = new StockDetails(10, 2, 20);
 
@@ -93,7 +95,7 @@ namespace CShop.DDDTest
 		private CatalogItem CreateTestCatalogItem(StockDetails? stock = null)
 		{
 			var name = new Name("Test Item");
-			var description = new ItemDescription("Test Description");
+			var description = new Description("Test Description");
 			var price = new Price(100);
 			var stockDetails = stock ?? new StockDetails(10, 2, 20);
 			return new CatalogItem(name, description, price, stockDetails);

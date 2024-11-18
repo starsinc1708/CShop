@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\CShop.CatalogService\CShop.CatalogService.csproj" />
+    <ProjectReference Include="..\..\src\CShop.DomainDefaults\CShop.DomainDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 

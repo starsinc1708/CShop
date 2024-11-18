@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CShop.CatalogService.Models.CatalogItemRoot;
+using CShop.CatalogService.Models.CatalogItemRoot.Events;
+using CShop.CatalogService.Models.CatalogItemRoot.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +26,7 @@ namespace CShop.DDDTest
 
 			var deactivationEvent = domainEvents.OfType<CatalogItemTypeDeactivatedEvent>().FirstOrDefault();
 			Assert.NotNull(deactivationEvent);
-			Assert.Equal(itemType.Id, deactivationEvent.CatalogItemTypeId);
+			Assert.Equal(itemType.Id, deactivationEvent.TypeId);
 		}
 
 		[Fact]
@@ -41,7 +44,7 @@ namespace CShop.DDDTest
 
 			var activationEvent = domainEvents.OfType<CatalogItemTypeActivatedEvent>().FirstOrDefault();
 			Assert.NotNull(activationEvent);
-			Assert.Equal(itemType.Id, activationEvent.CatalogItemTypeId);
+			Assert.Equal(itemType.Id, activationEvent.TypeId);
 		}
 	}
 }

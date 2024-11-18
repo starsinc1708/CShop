@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CShop.CatalogService.Models.CatalogItemRoot.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

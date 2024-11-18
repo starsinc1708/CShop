@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\CShop.DomainDefaults\CShop.DomainDefaults.csproj" />
 	  <ProjectReference Include="..\CShop.ServiceDefaults\CShop.ServiceDefaults.csproj" />
 	</ItemGroup>
 

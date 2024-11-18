@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CShop.CatalogService.Models.CatalogItemRoot;
+using CShop.CatalogService.Models.CatalogItemRoot.Events;
+using CShop.CatalogService.Models.CatalogItemRoot.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +27,7 @@ namespace CShop.DDDTest
 
 			var restockEvent = domainEvents.OfType<CatalogItemRestockThresholdTriggeredEvent>().FirstOrDefault();
 			Assert.NotNull(restockEvent);
-			Assert.Equal(item.Id, restockEvent.Id);
+			Assert.Equal(item.Id, restockEvent.ItemId);
 			Assert.Equal(2, restockEvent.Stock.AvailableStock); // Stock after reduction
 		}
 
@@ -44,7 +47,7 @@ namespace CShop.DDDTest
 
 			var maxStockEvent = domainEvents.OfType<CatalogItemMaxStockThresholdReachedEvent>().FirstOrDefault();
 			Assert.NotNull(maxStockEvent);
-			Assert.Equal(item.Id, maxStockEvent.Id);
+			Assert.Equal(item.Id, maxStockEvent.ItemId);
 			Assert.Equal(13, maxStockEvent.Stock.AvailableStock); // Stock after addition
 		}
 
@@ -64,7 +67,7 @@ namespace CShop.DDDTest
 
 			var activationEvent = domainEvents.OfType<CatalogItemActivatedEvent>().FirstOrDefault();
 			Assert.NotNull(activationEvent);
-			Assert.Equal(item.Id, activationEvent.CatalogItemId);
+			Assert.Equal(item.Id, activationEvent.ItemId);
 		}
 
 		[Fact]
@@ -82,13 +85,13 @@ namespace CShop.DDDTest
 
 			var deactivationEvent = domainEvents.OfType<CatalogItemDeactivatedEvent>().FirstOrDefault();
 			Assert.NotNull(deactivationEvent);
-			Assert.Equal(item.Id, deactivationEvent.CatalogItemId);
+			Assert.Equal(item.Id, deactivationEvent.ItemId);
 		}
 
 		private CatalogItem CreateTestCatalogItem(StockDetails? stock = null)
 		{
 			var name = new Name("Test Item");
-			var description = new ItemDescription("Test Description");
+			var description = new Description("Test Description");
 			var price = new Price(100);
 			var stockDetails = stock ?? new StockDetails(10, 2, 20);
 			return new CatalogItem(name, description, price, stockDetails);
