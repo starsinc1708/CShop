@@ -19,14 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="APIs\" />
-	  <Folder Include="Application\" />
-	  <Folder Include="Extensions\" />
-	  <Folder Include="Infrastructure\" />
-	  <Folder Include="Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\CShop.ServiceDefaults\CShop.ServiceDefaults.csproj" />
 	</ItemGroup>
 
